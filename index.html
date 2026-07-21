@@ -267,10 +267,16 @@
     font-size: clamp(38px, 10vw, 68px);
     font-weight: 800;
     letter-spacing: -0.025em;
-    color: var(--cream); opacity: 0.14;
+    color: var(--cream); opacity: 1;
     transition: opacity 0.22s ease; display: block;
   }
-  .nav-overlay nav a:hover{ opacity: 1; }
+  /* Dim-then-brighten discovery effect is a mouse affordance only —
+     touch devices have no persistent hover, so the overlay's only
+     navigation must stay fully legible by default there. */
+  @media (pointer: fine){
+    .nav-overlay nav a{ opacity: 0.14; }
+    .nav-overlay nav a:hover{ opacity: 1; }
+  }
   .nav-overlay .overlay-foot{
     position: absolute; bottom: 36px; left: 32px;
     font-family: var(--mono); font-size: 11px;
@@ -495,6 +501,8 @@
     font-size: 12px;
     color: var(--ink-soft);
     margin-bottom: 18px;
+    white-space: nowrap;
+    flex-shrink: 0;
   }
 
   .case-industry{
@@ -504,6 +512,8 @@
     text-transform: uppercase;
     letter-spacing: 0.08em;
     margin-bottom: 16px;
+    white-space: nowrap;
+    flex-shrink: 0;
   }
 
   .case-block{ margin-bottom: var(--sp-4); }
@@ -516,8 +526,8 @@
     margin-bottom: 9px;
     display:block;
   }
-  .case-block p{ font-size: 15px; color: var(--ink); line-height: 1.68; }
-  .case-block ul{ display:flex; flex-direction:column; gap:8px; }
+  .case-block p{ font-size: 15px; color: var(--ink); line-height: 1.68; max-width: 620px; }
+  .case-block ul{ display:flex; flex-direction:column; gap:8px; max-width: 620px; }
   .case-block ul li{
     font-size: 15px;
     color: var(--ink-soft);
@@ -592,8 +602,9 @@
      RECIPE A, bleed image, overlapping title card  (Case 01)
   =========================================================== */
   .case-art--bleed .case-meta-top{
-    display: flex; align-items: center; gap: 20px; margin-bottom: var(--sp-4);
+    display: flex; align-items: center; flex-wrap: wrap; gap: 6px 20px; margin-bottom: var(--sp-4);
   }
+  .case-art--bleed .case-meta-top .case-context{ flex-basis: 100%; }
 
   /* Contained image, no bleed, stays within wrap */
   .case-art--bleed .case-visual-contained{
@@ -2663,11 +2674,12 @@
   /* Case context line — one sentence for recruiter orientation */
   .case-context{
     font-family: var(--mono);
-    font-size: 11px;
+    font-size: 13px;
     color: var(--ink-soft);
     margin-top: 8px;
     margin-bottom: 0;
     letter-spacing: 0.02em;
+    max-width: 620px;
   }
 
 
@@ -3250,7 +3262,6 @@
 
   <section id="leadership" aria-label="How I lead">
     <div class="wrap">
-      <div class="eyebrow-label">How I Lead</div>
       <h2 data-cursor="text" class="sec-title sec-title--tight">Leading designers,<br><span class="soft">not just designs.</span></h2>
 
       <div class="lead-layout">
@@ -3346,8 +3357,6 @@
   <div class="footer-ambient" aria-hidden="true"></div>
 
   <div class="wrap footer-inner">
-
-    <div class="eyebrow-label reveal">Get In Touch</div>
 
     <!-- Closing headline, word-by-word stagger -->
     <h2 class="closing-headline reveal" data-cursor="text">
