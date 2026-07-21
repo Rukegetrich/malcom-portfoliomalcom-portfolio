@@ -1894,17 +1894,11 @@
     text-transform: uppercase;
     letter-spacing: 0.06em;
   }
-  .lead-items{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2px;
-  }
-  .lead-item{
-    padding: var(--sp-4) 0;
-    border-top: 1px solid var(--line);
-    padding-right: var(--sp-4);
-  }
-  .lead-item .li-label{
+  /* One practice pulled out and given real weight — matches the
+     accent-bordered pull-quote device already used for case-study
+     tension callouts, rather than repeating it as a 6th equal box. */
+  .lead-featured{ margin-bottom: var(--sp-5); }
+  .lead-featured .li-label{
     font-family: var(--mono);
     font-size: 11px;
     color: var(--accent);
@@ -1913,17 +1907,36 @@
     display: block;
     margin-bottom: 10px;
   }
-  .lead-item p{
-    font-size: 15px;
+  .lead-featured p{
+    font-size: clamp(17px, 1.9vw, 21px);
+    font-style: italic;
+    color: var(--ink);
+    line-height: 1.5;
+    max-width: 560px;
+    padding-left: 18px;
+    border-left: 2px solid var(--accent);
+  }
+
+  /* The remaining practices: a tight, single-line-per-item list —
+     scannable, not six identical stacked boxes. */
+  .lead-list{ border-top: 1px solid var(--line); }
+  .lead-list li{
+    padding: 15px 0;
+    border-bottom: 1px solid var(--line);
+    font-size: 14.5px;
     line-height: 1.6;
     color: var(--ink-soft);
-    margin: 0;
+  }
+  .lead-list li strong{
+    color: var(--ink);
+    font-weight: 600;
+    margin-right: 6px;
   }
 
   @media (max-width: 860px){
     .lead-layout{ grid-template-columns: 1fr; gap: var(--sp-5); }
-    .lead-items{ grid-template-columns: 1fr; gap: 0; }
     .lead-intro p{ max-width: 640px; }
+    .lead-featured p{ padding-left: 14px; }
   }
 
   /* =========================================================
@@ -3276,30 +3289,17 @@
         </div>
 
         <div class="lead-items reveal">
-          <div class="lead-item">
+          <div class="lead-featured">
             <span class="li-label">Mentoring</span>
-            <p>Coached and mentored designers across several teams, helping them grow their craft, confidence, and decision-making.</p>
+            <p>Coached and mentored designers across several teams — the throughline behind everything else here: helping them grow their craft, confidence, and decision-making.</p>
           </div>
-          <div class="lead-item">
-            <span class="li-label">Design Direction</span>
-            <p>Set the design direction others built against, keeping work aligned to a shared standard rather than individual taste.</p>
-          </div>
-          <div class="lead-item">
-            <span class="li-label">Critique</span>
-            <p>Ran design critiques and reviews as a regular practice, using them to lift quality and build a shared language across the team.</p>
-          </div>
-          <div class="lead-item">
-            <span class="li-label">Hiring</span>
-            <p>Contributed to hiring and interview decisions, helping shape who joined the team and the bar we hired against.</p>
-          </div>
-          <div class="lead-item">
-            <span class="li-label">Planning</span>
-            <p>Owned roadmap and planning decisions, prioritising work so the team focused on what mattered most.</p>
-          </div>
-          <div class="lead-item">
-            <span class="li-label">Team Process</span>
-            <p>Established team processes and rituals that made collaboration more consistent and the team more dependable.</p>
-          </div>
+          <ul class="lead-list">
+            <li><strong>Design Direction</strong> Set the design direction others built against, keeping work aligned to a shared standard rather than individual taste.</li>
+            <li><strong>Critique</strong> Ran design critiques and reviews as a regular practice, using them to lift quality and build a shared language across the team.</li>
+            <li><strong>Hiring</strong> Contributed to hiring and interview decisions, helping shape who joined the team and the bar we hired against.</li>
+            <li><strong>Planning</strong> Owned roadmap and planning decisions, prioritising work so the team focused on what mattered most.</li>
+            <li><strong>Team Process</strong> Established team processes and rituals that made collaboration more consistent and the team more dependable.</li>
+          </ul>
         </div>
       </div>
     </div><!-- /wrap -->
