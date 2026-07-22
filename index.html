@@ -1860,6 +1860,13 @@
      Editorial 2-col: a lead statement + stat on the left,
      a set of confirmed leadership behaviours on the right.
   ========================================================= */
+  /* Leadership shares .sec-title--tight with Experience, whose
+     54px heading gap suits its denser chapter list. This section
+     runs on a tighter 26-30px rhythm throughout, so the heading
+     was the one element visibly out of step — override locally
+     instead of touching the shared class. */
+  #leadership .sec-title--tight{ margin-bottom: var(--sp-4); }
+
   .lead-layout{
     display: grid;
     grid-template-columns: 0.8fr 1.2fr;
