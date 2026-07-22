@@ -435,6 +435,7 @@
   #work        { padding: var(--section-y) 0 var(--sp-6); }    /* work: generous top, tighter base, flows into case studies */
   #about   { /* height controlled by sticky, no padding needed */ }
   #experience  { padding: var(--section-y) 0; } /* dense content, medium breathing */
+  #leadership  { padding: var(--section-y) 0; } /* had no padding of its own — borrowed neighbours' spacing, sat flush top and bottom */
   #skills      { padding: var(--section-y) 0; }    /* expansive pause, minimal content needs maximum air */
   
   /* sheet entrance top padding — fluid, so it scales calmly instead of
@@ -2325,6 +2326,7 @@
        specificity so no section inherits desktop pacing. */
     #work{ padding: var(--m-section) 0 var(--m-chapter); }
     #experience{ padding: var(--m-band) 0; }
+    #leadership{ padding: var(--m-band) 0; }
     #skills{ padding: var(--m-band) 0; }
     main.sheet > #work:first-child{ padding-top: var(--m-section); }
 
