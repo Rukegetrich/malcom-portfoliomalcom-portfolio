@@ -9,7 +9,12 @@
 <meta property="og:title"       content="Malcom Ovwighose — Senior Product Designer">
 <meta property="og:description" content="8 years designing scalable SaaS, fintech and proptech products. Available for senior roles in the UK and Europe.">
 <meta property="og:url"         content="https://malcomdesigns.com">
+<meta property="og:image"       content="https://ovwighose-malcom.vercel.app/images/about-portrait.jpg">
+<meta property="og:image:width" content="800">
+<meta property="og:image:height" content="1079">
+<meta property="og:image:alt"   content="Malcom Ovwighose">
 <meta name="twitter:card"       content="summary_large_image">
+<meta name="twitter:image"      content="https://ovwighose-malcom.vercel.app/images/about-portrait.jpg">
 <meta name="robots"             content="index, follow">
 <meta name="theme-color"        content="#0A0B0D">
 <meta name="color-scheme"       content="light dark">
@@ -188,13 +193,13 @@
 
   .logo-expand{
     display: inline-block;
-    max-width: 0;
     overflow: hidden;
     opacity: 0;
-    transition: max-width 0.55s var(--ease), opacity 0.4s ease;
+    clip-path: inset(0 100% 0 0);
+    transition: clip-path 0.55s var(--ease), opacity 0.4s ease;
     white-space: nowrap;
   }
-  .nav-logo:hover .logo-expand{ max-width: 220px; opacity: 0.65; }
+  .nav-logo:hover .logo-expand{ clip-path: inset(0 0 0 0); opacity: 0.65; }
 
   nav.nav-links{ display: flex; gap: 38px; align-items: center; }
 
@@ -1852,9 +1857,9 @@
     font-size: 15px; color: var(--ink);
     padding: var(--sp-2) 0;
     border-bottom: 1px solid var(--line);
-    transition: padding-left 0.25s var(--ease), color 0.25s ease;
+    transition: transform 0.25s var(--ease), color 0.25s ease;
   }
-  .skill-group ul li:hover{ padding-left: 8px; color: var(--accent); cursor: default; }
+  .skill-group ul li:hover{ transform: translateX(8px); color: var(--accent); cursor: default; }
 
   /* =========================================================
      LEADERSHIP  (How I lead)
@@ -2443,6 +2448,18 @@
   }
 
   a:focus-visible, button:focus-visible, [tabindex]:focus-visible{ outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
+
+  /* Pressed feedback — hover alone doesn't confirm a tap/click
+     registered, especially on touch where hover never fires. */
+  .case-link:active,
+  .footer-links a:active,
+  nav.nav-links a:active,
+  .nav-overlay nav a:active,
+  .project-index a:active,
+  .email-cta:active{
+    opacity: 0.6;
+  }
+  .more-card:active{ opacity: 0.85; }
 
   /* =========================================================
      SIGNATURE INTERACTION, AMBIENT INTELLIGENCE CURSOR
