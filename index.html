@@ -1866,6 +1866,11 @@
     gap: clamp(40px, 6vw, 88px);
     align-items: start;
   }
+  /* The right column runs taller than the left (intro + stat) —
+     same asymmetric two-column shape as .pof-side-img. Pin the
+     shorter column in view instead of letting it end early and
+     leave dead space beside the still-scrolling list. */
+  .lead-intro{ position: sticky; top: 110px; }
   .lead-intro p{
     font-size: clamp(16px, 1.5vw, 19px);
     line-height: 1.6;
@@ -1935,6 +1940,7 @@
 
   @media (max-width: 860px){
     .lead-layout{ grid-template-columns: 1fr; gap: var(--sp-5); }
+    .lead-intro{ position: static; }
     .lead-intro p{ max-width: 640px; }
     .lead-featured p{ padding-left: 14px; }
   }
