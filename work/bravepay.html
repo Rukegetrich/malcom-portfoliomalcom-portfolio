@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BravePay — Mobile Wallet KYC Redesign | Malcom Ovwighose</title>
+<meta name="description" content="How I redesigned BravePay's KYC verification flow for African SMEs: cutting a nine-step process to four and lifting checkout conversion 25%.">
+<meta property="og:type"        content="article">
+<meta property="og:title"       content="BravePay — Mobile Wallet KYC Redesign">
+<meta property="og:description" content="Senior Product Designer case study: repositioning fintech compliance as context, not a gate.">
+<meta property="og:image"       content="https://ovwighose-malcom.vercel.app/images/bravepay-wallet-screens.jpg">
+<meta name="twitter:card"       content="summary_large_image">
+<meta name="robots"             content="index, follow">
+<meta name="theme-color"        content="#FAFAF8">
+<meta name="color-scheme"       content="light dark">
+<link rel="dns-prefetch" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+<style>
+  body.case-page{ background: var(--paper); }
+  main.case-main{
+    background: var(--paper);
+    padding-top: clamp(96px, 14vw, 140px);
+    padding-bottom: var(--section-y);
+  }
+  .case-back-link{ margin-bottom: var(--sp-6); display: inline-flex; }
+  @media (max-width: 980px){
+    main.case-main{ padding-top: 88px; }
+    .case-back-link{ margin-bottom: var(--sp-5); }
+  }
+</style>
+</head>
+<body class="case-page nav-on-light">
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<div class="cur-glow" id="curGlow" aria-hidden="true"></div>
+<div class="cur-ring" id="curRing" aria-hidden="true"><span class="cur-label" id="curLabel"></span></div>
+<div class="cur-dot" id="curDot" aria-hidden="true"></div>
+
+<div class="nav-progress" id="navProgress"></div>
+
+<header class="nav" id="siteNav">
+  <div class="wrap nav-inner">
+    <a href="../index.html#hero" class="nav-logo" aria-label="Malcom Ovwighose, home">
+      <span class="logo-mark">MO</span><span class="logo-expand">&nbsp;, Malcom Ovwighose</span>
+    </a>
+    <nav class="nav-links" id="navLinks">
+      <a href="../index.html#work">work</a>
+      <a href="../index.html#about">about</a>
+      <a href="../index.html#experience">experience</a>
+      <a href="../index.html#leadership">leadership</a>
+      <a href="../index.html#contact">contact</a>
+    </nav>
+    <button class="nav-menu-btn" id="navMenuBtn" aria-label="Open menu">menu</button>
+  </div>
+</header>
+
+<div class="nav-overlay" id="navOverlay" role="dialog" aria-label="Site navigation">
+  <button class="close-btn" id="navCloseBtn" aria-label="Close menu">close</button>
+  <nav>
+    <a href="../index.html#work" class="nav-overlay-link">work</a>
+    <a href="../index.html#about" class="nav-overlay-link">about</a>
+    <a href="../index.html#experience" class="nav-overlay-link">experience</a>
+    <a href="../index.html#leadership" class="nav-overlay-link">leadership</a>
+    <a href="../index.html#contact" class="nav-overlay-link">contact</a>
+  </nav>
+  <div class="overlay-foot"><span class="dot"></span>&nbsp; Open to work, United Kingdom</div>
+</div>
+
+<main class="case-main" id="main-content" role="main">
+  <div class="wrap">
+
+    <a class="case-link case-back-link" href="../index.html#work">← Back to all work</a>
+
+    <article class="case-art case-art--quiet">
+      <div class="wrap q-inner">
+
+        <div class="q-header">
+          <div>
+            <h1 class="q-co" data-cursor="text">BravePay</h1>
+            <span class="q-industry">Fintech · Mobile Wallet</span>
+            <p class="case-context">Mobile-first digital wallet and payment platform built for SMEs in the African market</p>
+          </div>
+          <div class="q-meta">
+            <span style="color:var(--ink-soft);">Senior Product Designer</span>
+            <span class="q-role">Sketch · Figma · InVision</span>
+          </div>
+        </div>
+
+        <p class="q-opening">BravePay needed to help African SMEs send, receive, and verify payments digitally, without the anxiety that most fintech compliance flows create at the exact moment trust is most fragile. The challenge wasn't technical. It was perceptual.</p>
+
+        <div class="q-image">
+          <img src="../images/bravepay-wallet-screens.jpg" alt="BravePay mobile wallet app screens" data-cursor="image" loading="lazy" decoding="async">
+        </div>
+
+        <div class="q-body case-progressive">
+          <div>
+            <span class="q-section-label">Problem</span>
+            <p class="q-section-text">Compliance-heavy onboarding was colliding with the need to feel simple and welcoming for first-time digital wallet users. Every additional verification step introduced doubt, not security.</p>
+          </div>
+          <div>
+            <span class="q-section-label">What we built</span>
+            <p class="q-section-text">A wallet and KYC flow that surfaced verification requirements only when they became relevant, not as an upfront gate. Compliance happened in the background of the experience, not in front of it.</p>
+          </div>
+        </div>
+
+        <div class="q-tension">
+          <span class="t-label">The hard call</span>
+          <p>The original KYC flow had nine steps. Testing showed abandonment at step three, not because the steps were unreasonable, but because users couldn't see where it ended. We removed five steps entirely and introduced a single progress marker. The first version of this felt like giving something up. It turned out to be the right call.</p>
+        </div>
+
+        <div class="q-outcome">
+          <span class="q-stat">+25%</span>
+          <span class="q-desc">Lift in checkout conversion after reducing the verification flow from nine steps to four, and repositioning compliance as context rather than a gate.</span>
+        </div>
+
+        <a class="case-link" href="https://www.behance.net/rukevweovwigho" target="_blank" rel="noopener">View more work on Behance →</a>
+
+      </div>
+    </article>
+
+    <a class="case-link case-back-link" href="../index.html#work" style="margin-top: var(--sp-7); margin-bottom: 0;">← Back to all work</a>
+  </div>
+</main>
+
+<footer class="contact" data-cursor-dark itemscope itemtype="https://schema.org/Person">
+  <div class="footer-monogram" aria-hidden="true">MO</div>
+  <div class="footer-grain"   aria-hidden="true"></div>
+  <div class="footer-ambient" aria-hidden="true"></div>
+
+  <div class="wrap footer-inner">
+    <h2 class="closing-headline reveal" data-cursor="text">
+      <span class="w" style="--i:0">Ready</span>&#8202;
+      <span class="w" style="--i:1">for</span>&#8202;
+      <span class="w" style="--i:2">your</span><br>
+      <span class="w w-soft" style="--i:3">next</span>&#8202;
+      <span class="w" style="--i:4">hard</span><br>
+      <span class="w w-accent" style="--i:5">problem.</span>
+    </h2>
+
+    <a class="email-cta reveal" href="mailto:Ovwighosemalcom@yahoo.com" itemprop="email">
+      <span class="email-text">Ovwighosemalcom@yahoo.com</span>
+      <span class="email-arrow">→</span>
+    </a>
+
+    <div class="footer-bottom reveal">
+      <div class="footer-bottom-left">
+        <div class="footer-status">
+          <span class="dot"></span>
+          <span>Open to full-time &amp; freelance, United Kingdom</span>
+        </div>
+        <nav class="footer-links">
+          <a href="tel:+447470546774">+44 7470 546774</a>
+          <a href="https://www.linkedin.com/in/malcom-ovwighose-061b34155" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://www.behance.net/rukevweovwigho" target="_blank" rel="noopener">Behance</a>
+          <a href="http://dribbble.com/Rukegetrich" target="_blank" rel="noopener">Dribbble</a>
+        </nav>
+      </div>
+      <span class="credit">© 2026 Malcom Ovwighose</span>
+    </div>
+  </div>
+</footer>
+
+<script src="../script.js"></script>
+
+</body>
+</html>

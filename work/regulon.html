@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Regulon — AML/KYC Onboarding Redesign | Malcom Ovwighose</title>
+<meta name="description" content="How I redesigned Regulon's AML/KYC onboarding flow: the research that reframed the problem, the decisions behind the redesign, and the design system it produced. 25% higher completion, 30% faster workflow time.">
+<meta property="og:type"        content="article">
+<meta property="og:title"       content="Regulon — AML/KYC Onboarding Redesign">
+<meta property="og:description" content="Senior Product Designer case study: reframing a compliance onboarding flow around what was actually driving abandonment.">
+<meta property="og:image"       content="https://ovwighose-malcom.vercel.app/images/regulon-onboarding-screens.jpg">
+<meta name="twitter:card"       content="summary_large_image">
+<meta name="robots"             content="index, follow">
+<meta name="theme-color"        content="#FAFAF8">
+<meta name="color-scheme"       content="light dark">
+<link rel="dns-prefetch" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+<style>
+  /* Case-study page: no pinned hero, content starts under the fixed
+     nav directly on paper — same sheet surface, none of the curtain
+     overlap since there's no dark hero above it to slide over. */
+  body.case-page{ background: var(--paper); }
+  main.case-main{
+    background: var(--paper);
+    padding-top: clamp(96px, 14vw, 140px);
+    padding-bottom: var(--section-y);
+  }
+  .case-back-link{ margin-bottom: var(--sp-6); display: inline-flex; }
+  @media (max-width: 980px){
+    main.case-main{ padding-top: 88px; }
+    .case-back-link{ margin-bottom: var(--sp-5); }
+  }
+</style>
+</head>
+<body class="case-page nav-on-light">
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<!-- Ambient Intelligence Cursor System -->
+<div class="cur-glow" id="curGlow" aria-hidden="true"></div>
+<div class="cur-ring" id="curRing" aria-hidden="true"><span class="cur-label" id="curLabel"></span></div>
+<div class="cur-dot" id="curDot" aria-hidden="true"></div>
+
+<div class="nav-progress" id="navProgress"></div>
+
+<header class="nav" id="siteNav">
+  <div class="wrap nav-inner">
+    <a href="../index.html#hero" class="nav-logo" aria-label="Malcom Ovwighose, home">
+      <span class="logo-mark">MO</span><span class="logo-expand">&nbsp;, Malcom Ovwighose</span>
+    </a>
+    <nav class="nav-links" id="navLinks">
+      <a href="../index.html#work">work</a>
+      <a href="../index.html#about">about</a>
+      <a href="../index.html#experience">experience</a>
+      <a href="../index.html#leadership">leadership</a>
+      <a href="../index.html#contact">contact</a>
+    </nav>
+    <button class="nav-menu-btn" id="navMenuBtn" aria-label="Open menu">menu</button>
+  </div>
+</header>
+
+<div class="nav-overlay" id="navOverlay" role="dialog" aria-label="Site navigation">
+  <button class="close-btn" id="navCloseBtn" aria-label="Close menu">close</button>
+  <nav>
+    <a href="../index.html#work" class="nav-overlay-link">work</a>
+    <a href="../index.html#about" class="nav-overlay-link">about</a>
+    <a href="../index.html#experience" class="nav-overlay-link">experience</a>
+    <a href="../index.html#leadership" class="nav-overlay-link">leadership</a>
+    <a href="../index.html#contact" class="nav-overlay-link">contact</a>
+  </nav>
+  <div class="overlay-foot"><span class="dot"></span>&nbsp; Open to work, United Kingdom</div>
+</div>
+
+<main class="case-main" id="main-content" role="main">
+  <div class="wrap">
+
+    <a class="case-link case-back-link" href="../index.html#work">← Back to all work</a>
+
+    <article class="case-art case-art--bleed" id="case-regulon-full">
+      <div class="case-meta-top">
+        <span class="case-number">01 / 05</span>
+        <span class="case-industry">Fintech · Compliance SaaS</span>
+        <p class="case-context">B2B SaaS platform automating KYB onboarding and fraud detection for financial services teams</p>
+      </div>
+
+      <h1 class="case-01-title" data-cursor="text">Regulon</h1>
+
+      <div class="case-visual-contained">
+        <div class="mockup-stage">
+          <div class="browser-wrap">
+            <div class="browser-screen">
+              <img data-cursor="image" src="../images/regulon-onboarding-screens.jpg" alt="Regulon compliance onboarding screens" loading="lazy" decoding="async">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="case-teaser">
+        <p>What if compliance onboarding felt as clear as anything else people sign up for?</p>
+      </div>
+
+      <div class="case-progressive">
+
+        <div class="case-block case-block--lede">
+          <span class="lbl">Executive Summary</span>
+          <p>Regulon is a B2B compliance platform for financial services teams, and I led the redesign of its AML/KYC onboarding flow, the point where its most operationally important users most often gave up. The original flow used a step-by-step wizard that hid the scope of what compliance required until users were already inside it. Testing showed that hidden scope, not the compliance requirement itself, was driving abandonment. I redesigned the flow to show the full onboarding journey upfront, let users move between sections instead of forcing linear progress, and rebuilt the underlying components into a reusable system. The result: a 25% increase in onboarding completion, a 30% reduction in time to complete the workflow, and a design system that cut dev implementation time by an estimated 40% by removing duplicated UI across the product.</p>
+        </div>
+
+        <div class="case-block">
+          <span class="lbl">The Challenge</span>
+          <p>Regulon automates KYB verification and fraud detection for financial services teams, sitting at a point where compliance and product experience are in direct tension: every verification step regulation requires works against the completion rate the business needs. Financial operations teams, the primary users, were abandoning onboarding mid-flow. Manual document review and unclear compliance steps meant users hit friction exactly when they most needed to trust the process was working.</p>
+          <p>That erosion of trust, not the compliance burden itself, was the real product problem. Users weren't quitting because AML/KYC verification is inherently hard, they were quitting because they couldn't tell how much of it was left, or why a given step existed. The business needed a flow that could hold both truths at once: fully compliant, and legible enough that a financial operations lead would actually finish it in one sitting.</p>
+        </div>
+
+        <div class="case-block">
+          <span class="lbl">Business Goals</span>
+          <p>Four goals sat behind the redesign, in this order: increase onboarding completion without loosening any compliance requirement, reduce operational friction for the teams running the workflow, improve trust at the moments users are asked to hand over sensitive business documentation, and support compliance as a design constraint rather than work around it. The ordering mattered, completion and trust were the user-facing goals, but neither one could be allowed to compromise the fourth.</p>
+          <ul>
+            <li>Increase onboarding completion</li>
+            <li>Reduce operational friction</li>
+            <li>Improve trust at high-stakes moments</li>
+            <li>Support compliance, not work around it</li>
+          </ul>
+        </div>
+
+        <div class="case-block">
+          <span class="lbl">My Role</span>
+          <p>I owned this end to end: the discovery work that reframed the problem, the UX and UI decisions that followed from it, the design system it produced, and the working relationship with engineering that got it shipped and kept it consistent as it spread into other flows.</p>
+        </div>
+        <div class="case-meta-row">
+          <span><strong>Role</strong> Senior Product Designer</span>
+          <span><strong>Scope</strong> Discovery, UX, UI, prototyping, design system, developer collaboration</span>
+          <span><strong>Tools</strong> Figma, FigJam, Maze</span>
+        </div>
+
+        <div class="case-block">
+          <span class="lbl">User Research &amp; Discovery</span>
+          <p>Regulon's onboarding sat across two functions that rarely design together: compliance, who own the regulatory requirement, and product operations, who own the experience the customer actually has. Discovery started by mapping the AML/KYC workflow as it existed operationally, not as it was documented, working through it with the stakeholders who owned different parts of it to understand where the process actually broke down versus where it was simply unavoidable regulatory friction.</p>
+          <p>That distinction was the point of the discovery phase. Not every point of friction in a compliance flow is a design problem, some of it is the regulation, and treating all friction as fixable means either fighting requirements that can't move or missing where the real opportunity is. Journey mapping the existing flow against usage data showed the drop-off wasn't evenly spread. It clustered at the start of the multi-step verification, before users had done any of the actual document work, which pointed to a legibility problem rather than a workload problem.</p>
+          <p>Usability testing on the existing wizard, run through Maze, confirmed it. Users weren't struggling with individual steps, they were abandoning before committing to the flow at all, because they couldn't see how much was being asked of them. The wizard's isolated, one-screen-at-a-time structure, designed to reduce cognitive load by only showing one decision at a time, was actually the cause of the drop-off: it hid the information users needed to decide whether to commit. That was the core research insight the rest of the redesign was built on. For a compliance-heavy flow, showing more upfront, not less, was what earned commitment.</p>
+          <p>Not every finding from discovery made it into scope. Separating insights that were symptoms of the interface from insights that were genuinely regulatory constraints was itself part of the work, and it's what kept this project focused on the one structural change that mattered rather than spreading thin across a dozen smaller fixes that wouldn't have moved completion on their own.</p>
+        </div>
+
+        <div class="case-block">
+          <span class="lbl">Constraints</span>
+          <p><strong>Regulatory requirements.</strong> Every verification step in the flow existed because AML/KYC and KYB obligations required it. None of them could be removed, reordered in a way that broke a compliance dependency, or made optional.</p>
+          <p><strong>Compliance.</strong> Because Regulon is a compliance product used by regulated businesses, any UI-level ambiguity about what a step was for, or whether it had been completed, carried real operational risk. Clarity wasn't a nice-to-have here, it was itself a compliance requirement.</p>
+          <p><strong>Technical constraints.</strong> The flow needed to work across web and mobile from a shared backend handling document verification and fraud detection, which meant it couldn't assume a layout or interaction model unique to one platform.</p>
+          <p><strong>Business priorities.</strong> The redesign had to ship inside the same release cadence as the rest of the product, which ruled out a from-scratch rebuild and meant the new flow needed to reuse and extend the existing component set wherever the shipped experience allowed it.</p>
+          <p>None of these were obstacles to design around. Together they were the actual shape of the problem, and a redesign that ignored any one of them wouldn't have shipped, however much it improved completion on paper.</p>
+        </div>
+
+        <div class="case-block">
+          <span class="lbl">Design Decisions</span>
+          <p><strong>Show the whole journey upfront, not a linear wizard.</strong> This ran against a common assumption in form design, that breaking a long process into small, isolated steps reduces cognitive load. It does, for processes where the user already trusts the process is worth finishing. For a compliance flow being completed by someone deciding in real time whether onboarding is worth their operational time, hiding scope doesn't reduce load, it removes the information needed to make that decision. Once that was clear, showing more upfront stopped being a UX risk and became the fix.</p>
+          <p><strong>Make the flow step-aware, not a static form.</strong> Users could see every section of the onboarding journey at once and jump between sections that weren't order-dependent, while still being guided step by step through the ones that were. AML/KYC onboarding isn't one linear process, some verification steps depend on earlier ones, document upload before verification, and some don't, business details and beneficial ownership can be completed in either order. Forcing linear order onto steps that don't require it adds friction without adding safety.</p>
+          <p><strong>Build one reusable design system, not per-flow components.</strong> Regulon's product had several compliance and wallet workflows that had each accumulated their own slightly different version of the same components. Every new flow was paying an invisible tax in inconsistency and duplicated engineering effort. Treating this redesign as an opportunity to build the shared system, rather than just fixing the one flow in front of me, was a deliberate scope decision. It took longer upfront, but it's the reason the improvement compounded across the rest of the product rather than staying scoped to onboarding.</p>
+          <p>Individually, each of these is a reasonable response to a specific piece of research. Together, they add up to one underlying position: that legibility, not simplicity, was what this flow needed, and that treating compliance as a design constraint to work within, rather than a burden to hide, was what actually earned trust.</p>
+        </div>
+
+        <div class="case-tension">
+          <span class="t-label">Iterations</span>
+          <p>The first version was the wizard flow: a step-by-step progress bar, one screen at a time, each step isolated from the ones before and after it. It was the obvious first direction, the standard pattern for long compliance forms, and it tested well in isolation, each individual screen was clear once a user reached it.</p>
+          <p>The problem only showed up when we tested the full flow rather than individual screens. Users weren't finishing what they started, and the answer wasn't about any specific step, it was that they couldn't tell how many more were coming, or whether the process was almost done or barely started. Committing to the first screen of a wizard is committing to an unknown amount of remaining work, and for a busy operations lead deciding whether to onboard now or come back later, that uncertainty was enough to make "come back later" the easier choice, one that for a compliance flow often meant not coming back at all.</p>
+          <p>We reversed the structure rather than patching it, adding a progress indicator, or shortening individual steps. The full journey became visible before a user committed to starting, and navigation moved from screen-by-screen to section-by-section, with users free to jump ahead or back for anything that wasn't order-dependent. It was a bigger change than the smaller fixes on the table, and it's the one that actually moved completion.</p>
+          <p>The obvious risk in the reversal was that showing full scope upfront would just move the abandonment point earlier, to the first screen, rather than remove it. Before rolling it out fully, we tracked the new flow against the same usage data that had surfaced the original drop-off pattern, specifically to watch for that. The completion numbers below are net of that check, not a raw before-and-after comparison.</p>
+        </div>
+
+        <div class="case-block">
+          <span class="lbl">Final Solution</span>
+          <p>The shipped flow, shown above, is the guided structure that came out of that reversal: the full scope of KYB verification visible from the first screen, sections that can be completed in any order where the underlying process allows it, and a persistent sense of where a user is rather than a black box they've committed to. It works because it answers the question that was actually driving abandonment, how much is this going to take, before asking anyone to start, and because it represents the real structure of AML/KYC verification rather than a simplified linear version of it.</p>
+          <p>It's a deliberately unglamorous solution. There's no novel interaction pattern here, the underlying components are close to what most compliance products already use. The redesign's value isn't in the visual layer, it's in the structural decision underneath it: what information to show, and when, based on what the research showed users actually needed to commit.</p>
+        </div>
+
+        <div class="case-block">
+          <span class="lbl">Design System Contributions</span>
+          <p>Building the onboarding flow as a reusable system, rather than a one-off, produced components that now cover compliance and wallet workflows elsewhere in the product:</p>
+          <ul>
+            <li><strong>Reusable form fields</strong>, a single field component covering text, document upload, and selection inputs, replacing several near-duplicate versions that had accumulated across flows</li>
+            <li><strong>Button states</strong>, a consistent primary, secondary, and disabled model, so a disabled submit button means and looks the same everywhere</li>
+            <li><strong>Error states</strong>, inline validation tied to the specific field that caused it, rather than a summary disconnected from its source, which matters more in a compliance flow than almost anywhere else in the product</li>
+            <li><strong>Input validation</strong>, rules and timing (on blur, not on every keystroke) standardised across every form, so the same mistake produces the same feedback regardless of which step it happens on</li>
+            <li><strong>Spacing and typography</strong>, a shared scale so section density stays consistent whether a step has two fields or twelve</li>
+            <li><strong>Interaction patterns</strong>, one pattern for how sections expand, collapse, and hand off, instead of each flow inventing its own</li>
+          </ul>
+          <p>None of this was the headline deliverable, but it's the reason the improvement in dev implementation speed held, the components existed once, correctly, rather than needing to be rebuilt slightly differently for every compliance workflow that came after this one.</p>
+        </div>
+
+        <div class="case-block">
+          <span class="lbl">Accessibility</span>
+          <p>Regulon's users complete compliance work under time pressure, sometimes on a shared operations device, and accessibility mattered as a working requirement, not a checkbox layered on afterward. The flow was built to meet WCAG 2.2 AA: every interactive state, default, hover, focus, disabled, error, has a distinct, legible treatment, so information isn't communicated by colour alone. Focus states are visible and match the accent system used throughout the product rather than relying on the browser default outline, so keyboard users always know where they are, which matters in a multi-section flow users are expected to jump around in. Colour contrast across text and interactive elements was checked against WCAG's 4.5:1 minimum for body text, and the flow can be completed keyboard-only end to end, including jumping between sections, in an operations context where mouse use isn't guaranteed on every device.</p>
+        </div>
+
+        <div class="case-block">
+          <span class="lbl">Engineering Collaboration</span>
+          <p>None of the design system value above holds up without engineering collaboration built into the process rather than happening at handoff. Components were documented with their states, spacing rules, and interaction behaviour before implementation started, not reconstructed from a static file afterward, so engineering had a single source of truth for how a component should behave, not just how it should look. Handoff included the reasoning behind key decisions, why sections are jumpable, why validation fires on blur rather than on keystroke, alongside the specs themselves. Implementation was reviewed against the design system as it shipped, not just against the original mockups, which is part of why the reused components stayed consistent as they spread into the wallet and compliance workflows beyond the original onboarding scope.</p>
+          <p>That collaboration wasn't friction-free. The step-aware navigation, letting users jump between non-order-dependent sections, was more complex to implement than a strictly linear wizard, and early engineering feedback questioned whether the completion gain would justify the added build effort. Being able to point back to the specific research finding, that hidden scope, not step count, was driving abandonment, kept that conversation anchored in the problem instead of becoming a debate about implementation preference.</p>
+        </div>
+
+        <div class="case-block">
+          <span class="lbl">Business Impact</span>
+          <p>The redesign shipped against all four business goals: higher completion, less operational friction, and full compliance held throughout, plus a system-level benefit the original brief didn't ask for. Each number below maps back to a goal set at the outset. Completion answers the first, workflow time answers the second, and the design system answers one the project didn't start with but ended up serving anyway, consistency in how compliance is presented across the rest of the product.</p>
+        </div>
+        <div class="case-outcomes-bar">
+          <div class="stat"><span class="num">25%</span><span class="lbl">Higher onboarding completion</span></div>
+          <div class="stat"><span class="num">30%</span><span class="lbl">Faster workflow completion time</span></div>
+          <div class="stat"><span class="num">40%</span><span class="lbl">Faster dev implementation</span></div>
+        </div>
+        <div class="case-block">
+          <p>Alongside the numbers: a measurable reduction in duplicated UI across the product, and a shared component system that's since been reused across other compliance and wallet workflows.</p>
+        </div>
+
+        <div class="case-block">
+          <span class="lbl">Reflection</span>
+          <p><strong>What worked:</strong> reversing the wizard structure rather than patching it. It would have been easy to keep the step-by-step pattern and add a progress counter as a smaller fix, and it's worth being honest that this was the safer option on the table. Going back to the structural decision itself, rather than treating the symptom, is what actually moved completion, and it's the decision I'd defend most if asked to justify the redesign to a skeptical stakeholder.</p>
+          <p><strong>What didn't work as cleanly:</strong> treating the design system as a byproduct of this project rather than its own workstream from the start. Because it grew out of one flow's components rather than being scoped as its own deliverable, some early component decisions, particularly around error state variants, needed a second pass once other compliance flows started reusing them and surfaced edge cases the original onboarding flow never hit.</p>
+          <p><strong>What I'd improve with another iteration:</strong> build the design system's edge cases, empty states, partial-completion states, multi-error scenarios, against more than one consuming flow before calling it reusable, rather than validating it against the flow that produced it and assuming that coverage generalised. It held up well in practice, but that was closer to luck than to how I'd want to derisk a shared system again.</p>
+        </div>
+
+        <a class="case-link" href="https://www.regulon.io" target="_blank" rel="noopener">Visit regulon.io →</a>
+      </div>
+    </article>
+
+    <a class="case-link case-back-link" href="../index.html#work" style="margin-top: var(--sp-7); margin-bottom: 0;">← Back to all work</a>
+  </div>
+</main>
+
+<footer class="contact" data-cursor-dark itemscope itemtype="https://schema.org/Person">
+
+  <!-- Depth layers -->
+  <div class="footer-monogram" aria-hidden="true">MO</div>
+  <div class="footer-grain"   aria-hidden="true"></div>
+  <div class="footer-ambient" aria-hidden="true"></div>
+
+  <div class="wrap footer-inner">
+
+    <!-- Closing headline, word-by-word stagger -->
+    <h2 class="closing-headline reveal" data-cursor="text">
+      <span class="w" style="--i:0">Ready</span>&#8202;
+      <span class="w" style="--i:1">for</span>&#8202;
+      <span class="w" style="--i:2">your</span><br>
+      <span class="w w-soft" style="--i:3">next</span>&#8202;
+      <span class="w" style="--i:4">hard</span><br>
+      <span class="w w-accent" style="--i:5">problem.</span>
+    </h2>
+
+    <!-- Email CTA, large drawing-underline text link -->
+    <a class="email-cta reveal" href="mailto:Ovwighosemalcom@yahoo.com" itemprop="email">
+      <span class="email-text">Ovwighosemalcom@yahoo.com</span>
+      <span class="email-arrow">→</span>
+    </a>
+
+    <!-- Bottom bar -->
+    <div class="footer-bottom reveal">
+      <div class="footer-bottom-left">
+        <div class="footer-status">
+          <span class="dot"></span>
+          <span>Open to full-time &amp; freelance, United Kingdom</span>
+        </div>
+        <nav class="footer-links">
+          <a href="tel:+447470546774">+44 7470 546774</a>
+          <a href="https://www.linkedin.com/in/malcom-ovwighose-061b34155" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://www.behance.net/rukevweovwigho" target="_blank" rel="noopener">Behance</a>
+          <a href="http://dribbble.com/Rukegetrich" target="_blank" rel="noopener">Dribbble</a>
+        </nav>
+      </div>
+      <span class="credit">© 2026 Malcom Ovwighose</span>
+    </div>
+
+  </div>
+</footer>
+
+<script src="../script.js"></script>
+
+</body>
+</html>

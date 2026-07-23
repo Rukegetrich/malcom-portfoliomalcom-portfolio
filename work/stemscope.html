@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Stemscope — Low-Cost DIY VR Headset | Malcom Ovwighose</title>
+<meta name="description" content="How I designed a low-cost DIY VR headset for underserved Nigerian schools: offline-first, locally sourced, ₦1,500 per unit.">
+<meta property="og:type"        content="article">
+<meta property="og:title"       content="My Stemscope — Low-Cost DIY VR Headset">
+<meta property="og:description" content="Product Designer case study: designing access where infrastructure falls short.">
+<meta property="og:image"       content="https://ovwighose-malcom.vercel.app/images/stemscope-poster.jpg">
+<meta name="twitter:card"       content="summary_large_image">
+<meta name="robots"             content="index, follow">
+<meta name="theme-color"        content="#FAFAF8">
+<meta name="color-scheme"       content="light dark">
+<link rel="dns-prefetch" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+<style>
+  body.case-page{ background: var(--paper); }
+  main.case-main{
+    background: var(--paper);
+    padding-top: clamp(96px, 14vw, 140px);
+    padding-bottom: var(--section-y);
+  }
+  .case-back-link{ margin-bottom: var(--sp-6); display: inline-flex; }
+  @media (max-width: 980px){
+    main.case-main{ padding-top: 88px; }
+    .case-back-link{ margin-bottom: var(--sp-5); }
+  }
+</style>
+</head>
+<body class="case-page nav-on-light">
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<div class="cur-glow" id="curGlow" aria-hidden="true"></div>
+<div class="cur-ring" id="curRing" aria-hidden="true"><span class="cur-label" id="curLabel"></span></div>
+<div class="cur-dot" id="curDot" aria-hidden="true"></div>
+
+<div class="nav-progress" id="navProgress"></div>
+
+<header class="nav" id="siteNav">
+  <div class="wrap nav-inner">
+    <a href="../index.html#hero" class="nav-logo" aria-label="Malcom Ovwighose, home">
+      <span class="logo-mark">MO</span><span class="logo-expand">&nbsp;, Malcom Ovwighose</span>
+    </a>
+    <nav class="nav-links" id="navLinks">
+      <a href="../index.html#work">work</a>
+      <a href="../index.html#about">about</a>
+      <a href="../index.html#experience">experience</a>
+      <a href="../index.html#leadership">leadership</a>
+      <a href="../index.html#contact">contact</a>
+    </nav>
+    <button class="nav-menu-btn" id="navMenuBtn" aria-label="Open menu">menu</button>
+  </div>
+</header>
+
+<div class="nav-overlay" id="navOverlay" role="dialog" aria-label="Site navigation">
+  <button class="close-btn" id="navCloseBtn" aria-label="Close menu">close</button>
+  <nav>
+    <a href="../index.html#work" class="nav-overlay-link">work</a>
+    <a href="../index.html#about" class="nav-overlay-link">about</a>
+    <a href="../index.html#experience" class="nav-overlay-link">experience</a>
+    <a href="../index.html#leadership" class="nav-overlay-link">leadership</a>
+    <a href="../index.html#contact" class="nav-overlay-link">contact</a>
+  </nav>
+  <div class="overlay-foot"><span class="dot"></span>&nbsp; Open to work, United Kingdom</div>
+</div>
+
+<main class="case-main" id="main-content" role="main">
+  <div class="wrap">
+
+    <a class="case-link case-back-link" href="../index.html#work">← Back to all work</a>
+
+    <article class="case-art case-art--stemscope">
+      <div class="stemscope-header">
+        <span class="case-industry">Education · Immersive Learning · Africa</span>
+        <p class="case-context">Hardware and UX project: a low-cost DIY VR headset designed for underserved Nigerian schools</p>
+        <h1 data-cursor="text">My Stemscope</h1>
+        <p class="stemscope-sub">Reimagining practical STEM education without requiring a science lab.</p>
+      </div>
+
+      <div class="stemscope-visual">
+        <video
+          autoplay
+          muted
+          loop
+          playsinline
+          poster="../images/stemscope-poster.jpg"
+          aria-label="My Stemscope 3D VR headset render"
+          title="My Stemscope 3D render — low-cost DIY VR headset"
+          data-cursor="image">
+          <source src="../images/stemscope-render.mp4" type="video/mp4">
+          <img src="../images/stemscope-poster-fallback.jpg" alt="My Stemscope 3D VR headset render" loading="lazy" decoding="async">
+        </video>
+      </div>
+
+      <div class="stemscope-body">
+        <div>
+          <div class="case-block">
+            <span class="lbl">Problem</span>
+            <p>Millions of students across Nigerian public schools lack access to functional science laboratories, making hands-on STEM learning almost impossible in many regions.</p>
+          </div>
+          <div class="case-tension">
+            <span class="t-label">Design decision</span>
+            <p>The original concept was a full virtual lab environment. Research quickly revealed the real challenge wasn't immersion, it was accessibility, affordability, and offline usability.</p>
+          </div>
+        </div>
+        <div>
+          <div class="case-meta-row">
+            <span><strong>Role</strong> Product Designer</span>
+            <span><strong>Tools</strong> Figma, Adobe XD</span>
+          </div>
+          <div class="case-block">
+            <span class="lbl">Process</span>
+            <ul>
+              <li>Designed a low-cost DIY VR headset using locally sourced materials</li>
+              <li>Created offline-first learning experiences for low-connectivity environments</li>
+              <li>Iterated prototypes through student and teacher feedback during testing</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <p class="stemscope-quote">"Design can create access where infrastructure falls short."</p>
+
+      <div class="stemscope-outcomes">
+        <div class="case-outcomes-bar">
+          <div class="stat"><span class="num">₦1,500</span><span class="lbl">Per headset production cost</span></div>
+          <div class="stat"><span class="num">6/10</span><span class="lbl">Schools lack functional labs in Nigeria</span></div>
+          <div class="stat"><span class="num">Offline</span><span class="lbl">First, low-connectivity ready</span></div>
+        </div>
+        <div style="text-align:center;">
+          <a class="case-link" href="https://www.behance.net/gallery/235916291/My-Stemscope-A-low-cost-DIY-VR-Headset" target="_blank" rel="noopener">View case study on Behance →</a>
+        </div>
+      </div>
+    </article>
+
+    <a class="case-link case-back-link" href="../index.html#work" style="margin-top: var(--sp-7); margin-bottom: 0;">← Back to all work</a>
+  </div>
+</main>
+
+<footer class="contact" data-cursor-dark itemscope itemtype="https://schema.org/Person">
+  <div class="footer-monogram" aria-hidden="true">MO</div>
+  <div class="footer-grain"   aria-hidden="true"></div>
+  <div class="footer-ambient" aria-hidden="true"></div>
+
+  <div class="wrap footer-inner">
+    <h2 class="closing-headline reveal" data-cursor="text">
+      <span class="w" style="--i:0">Ready</span>&#8202;
+      <span class="w" style="--i:1">for</span>&#8202;
+      <span class="w" style="--i:2">your</span><br>
+      <span class="w w-soft" style="--i:3">next</span>&#8202;
+      <span class="w" style="--i:4">hard</span><br>
+      <span class="w w-accent" style="--i:5">problem.</span>
+    </h2>
+
+    <a class="email-cta reveal" href="mailto:Ovwighosemalcom@yahoo.com" itemprop="email">
+      <span class="email-text">Ovwighosemalcom@yahoo.com</span>
+      <span class="email-arrow">→</span>
+    </a>
+
+    <div class="footer-bottom reveal">
+      <div class="footer-bottom-left">
+        <div class="footer-status">
+          <span class="dot"></span>
+          <span>Open to full-time &amp; freelance, United Kingdom</span>
+        </div>
+        <nav class="footer-links">
+          <a href="tel:+447470546774">+44 7470 546774</a>
+          <a href="https://www.linkedin.com/in/malcom-ovwighose-061b34155" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://www.behance.net/rukevweovwigho" target="_blank" rel="noopener">Behance</a>
+          <a href="http://dribbble.com/Rukegetrich" target="_blank" rel="noopener">Dribbble</a>
+        </nav>
+      </div>
+      <span class="credit">© 2026 Malcom Ovwighose</span>
+    </div>
+  </div>
+</footer>
+
+<script src="../script.js"></script>
+
+</body>
+</html>
